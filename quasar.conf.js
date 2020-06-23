@@ -78,7 +78,7 @@ module.exports = function (/* ctx */) {
       iconSet: 'material-icons', // Quasar icon set
       lang: 'en-us', // Quasar language pack
       config: {},
-      directives: ['Ripple', 'TouchPan', 'TouchSwipe'],
+      directives: ['Ripple', 'TouchPan', 'TouchSwipe','ClosePopup'],
       plugins: ['Notify', 'BottomSheet'],
 
       // Possible values for "importStrategy":

@@ -17,9 +17,10 @@
           <q-item-label
             :class="{'text-line-through' : task.isComplete}"
             >
-              {{ task.label }} {{keys}}
+              {{ task.label }}
             </q-item-label>
         </q-item-section>
+  
 
         <q-item-section side>
           <div class="row">
@@ -40,6 +41,9 @@
                   /> 
 
           </div>
+
+         
+
         </q-item-section>
       </q-item>
 
@@ -48,6 +52,7 @@
 </template>
 <script>
 import {mapActions} from 'vuex'
+
 export default {
    props: ['task','keys'],
    methods: {
@@ -64,7 +69,7 @@ export default {
       },
       ...mapActions([
          'updateTask',
-         'deleteTask'
+         'deleteTask',
       ]),
       
    },
