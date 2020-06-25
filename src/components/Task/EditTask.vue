@@ -1,6 +1,6 @@
 <template>
   <q-card>
-    <task-title>Add Task</task-title>
+    <task-title>Edit task</task-title>
 
     <form @submit.prevent="submitFormMethod">
           <name-input
@@ -15,10 +15,8 @@
             v-if="TaskToSubmit.date"
             :time.sync="TaskToSubmit.time"
           ></name-time-input>
-
-      
-      <pre> {{ TaskToSubmit }} </pre>
-          <submit-button></submit-button>
+          <submit-button ></submit-button>
+          
     </form>
   </q-card>
 </template>
@@ -42,13 +40,14 @@ export default {
       }
     };
   },
+  props: ['id'],
   methods: {
-    ...mapActions(["addTask"]),
+    ...mapActions(["editTask"]),
     submitFormMethod() {
       this.$refs.modalName.$refs.name.validate();
       if (!this.$refs.modalName.$refs.name.hasError) {
-        this.addTask(this.TaskToSubmit);
-        this.$emit("close");
+        this.editTask({id: this.id, edit: this.TaskToSubmit});
+        this.$emit("hide");
       }
     },
   },

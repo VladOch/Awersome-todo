@@ -37,11 +37,18 @@ export default {
       },
       addTask(state, payload){
          Vue.set(state.tasks, payload.id, payload.task)
-      }
+      },
+      editTask(state, payload){
+         Object.assign(state.tasks[payload.id], payload.edit)
+      },
    },
    actions: {
       updateTask({ commit },payload) {
          commit('updateTask',payload)
+      },
+      editTask({commit}, payload) {
+         console.log(payload)
+         commit('editTask',payload)
       },
       deleteTask({ commit }, id) {
          commit('deleteTask',id)
